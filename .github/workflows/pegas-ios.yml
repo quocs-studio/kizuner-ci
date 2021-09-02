@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: iOS App
+name: Pegas iOS
 
 # Controls when the workflow will run
 on:
@@ -36,8 +36,6 @@ jobs:
       MATCH_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
       REPO_REF: ${{ github.event.inputs.repo_ref || 'master' }}
       APP_VERSION: ${{ github.event.inputs.app_version }}
-      FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
-      FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
       FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
       # FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
 
