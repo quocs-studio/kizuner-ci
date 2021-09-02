@@ -102,6 +102,9 @@ jobs:
         run: |
           pod install
 
+      - name: Build ios bundle
+        run: yarn build:ios
+
       - name: Run fastlane beta
         working-directory: ios
         run: bundler exec fastlane beta
