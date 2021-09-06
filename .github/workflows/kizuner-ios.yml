@@ -21,6 +21,12 @@ on:
         description: App version
         default: 1.0.15
         required: true
+      build_beta:
+        description: Build beta (1 to enable)
+        required: false
+      build_adhoc:
+        description: Build ad-hoc (1 to enable)
+        required: false
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -107,3 +113,9 @@ jobs:
       - name: Run fastlane beta
         working-directory: ios
         run: bundler exec fastlane beta
+        if: ${{ github.event.inputs.build_beta == '1' }}
+
+      - name: Run fastlane adhoc
+        working-directory: ios
+        run: bundler exec fastlane adhoc
+        if: ${{ github.event.inputs.build_adhoc == '1' }}
