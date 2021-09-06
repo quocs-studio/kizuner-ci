@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Pegas iOS
+name: Kizuner iOS
 
 # Controls when the workflow will run
 on:
@@ -19,7 +19,7 @@ on:
         default: "master"
       app_version:
         description: App version
-        default: 1.0.1
+        default: 1.0.15
         required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -44,7 +44,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-          repository: "quocs-studio/pegas-mobile"
+          repository: "quocs-studio/kizuner-mobile"
           token: ${{ secrets.QUOCS_GH_TOKEN }}
           ref: ${{ env.REPO_REF }}
 
