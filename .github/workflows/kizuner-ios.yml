@@ -43,6 +43,7 @@ jobs:
       REPO_REF: ${{ github.event.inputs.repo_ref || 'master' }}
       APP_VERSION: ${{ github.event.inputs.app_version }}
       FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+      APPCENTER_API_TOKEN: ${{ secrets.APPCENTER_API_TOKEN }}
       # FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
