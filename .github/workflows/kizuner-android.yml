@@ -21,6 +21,12 @@ on:
         description: App version
         default: 1.0.15
         required: true
+      build_apk:
+        description: Build APK and upload to AppCenter (1 to enable)
+        required: false
+      build_aab:
+        description: Build AAB and upload to Slack (1 to enable)
+        required: false
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -72,3 +78,10 @@ jobs:
       - name: Run fastlane beta
         working-directory: android
         run: bundler exec fastlane beta
+        if: ${{ github.event.inputs.build_apk == '1' }}
+        
+
+      - name: Run fastlane bundle
+        working-directory: android
+        run: bundler exec fastlane bundle
+        if: ${{ github.event.inputs.build_aab == '1' }}
