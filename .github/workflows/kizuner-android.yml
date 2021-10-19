@@ -27,6 +27,9 @@ on:
       build_aab:
         description: Build AAB and upload to Slack (1 to enable)
         required: false
+      build_staging:
+        description: Build Staging and upload to Slack (1 to enable)
+        required: false
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -85,3 +88,9 @@ jobs:
         working-directory: android
         run: bundler exec fastlane bundle
         if: ${{ github.event.inputs.build_aab == '1' }}
+        
+        
+      - name: Run fastlane staging
+        working-directory: android
+        run: bundler exec fastlane staging
+        if: ${{ github.event.inputs.build_staging == '1' }}
